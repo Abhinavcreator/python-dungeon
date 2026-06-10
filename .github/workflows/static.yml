@@ -19,7 +19,7 @@ jobs:
   deploy:
     environment:
       name: github-pages
-      url: ${{ steps: deployment.outputs.page_url }}
+      url: "${{ steps: deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -30,9 +30,6 @@ jobs:
         with:
           node-version: 20
           cache: 'npm'
-
-      - name: Install dependencies
-        run: npm ci
 
       - name: Build website
         run: npm run build
